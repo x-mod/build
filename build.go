@@ -1,6 +1,9 @@
 package build
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 var (
 	version = "dev"
@@ -13,3 +16,6 @@ func String() string {
 	return fmt.Sprintf("%v, commit %v, built at %v", version, commit, date)
 }
 
+func init() {
+	date = time.Now().Format(time.RFC822Z)
+}
